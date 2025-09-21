@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Event Registration</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="qrcode.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <form id="registrationForm">
+            <h1>Event Registration</h1>
+
+            <div class="progress-bar">
+                <div class="step-progress active" id="step1-progress">1</div>
+                <div class="step-progress" id="step2-progress">2</div>
+                <div class="step-progress" id="step3-progress">3</div>
+            </div>
+<!---------------------- Step- 1 --------------------->
+            <div id="step1" class="form-step active">
+                <div class="form-section">
+                    <div class="input-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" placeholder="Enter Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="collegeName">College Name</label>
+                        <input type="text" id="collegeName" name="collegeName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="branch">Branch</label>
+                        <input type="text" id="branch" name="branch" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="usn">USN</label>
+                        <input type="text" id="usn" name="usn" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="event">Select Event</label>
+                        <select id="event" name="event" required>
+                            <option value="">-- Select an Event --</option>
+                            <option value="Tech-Fest">Tech Fest</option>
+                            <option value="Hackathon">Hackathon</option>
+                            <option value="Workshop">Workshop</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+<!---------------------- Step- 2 --------------------->
+            <div id="step2" class="form-step">
+                <p>Please complete your payment to finalize registration.</p>
+                <div class="payment-option">
+                    
+                    <div class="payment">
+                        
+                        <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RKD61ESdyrbJdH" async> </script> </form>
+                    </div>
+                    
+                </div>
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Confirm Payment</button>
+            </div>
+<!---------------------- Step- 3 --------------------->
+            <!-- Step 3: Success -->
+<div id="step3" class="form-step success-step">
+  <div class="success-icon">&#10004;</div>
+  <h2>Registration Successful!</h2>
+
+  <!-- Registration ID will appear here -->
+  <p id="regIdDisplay" style="font-weight:600; margin:1rem 0;"></p>
+
+  <!-- QR Code will be inserted here -->
+  <div id="qrCodeContainer" style="margin:1rem 0; text-align:center;"></div>
+
+  <!-- Action buttons -->
+  <div class="success-actions">
+    <a id="downloadQR" class="button" style="display:none;">Download QR</a>
+    <a id="sendEmailBtn" class="button" href="#" target="_blank">Send confirmation email</a>
+    <button type="button" id="downloadCert">Download Certificate (PDF)</button>
+  </div>
+
+  <p>Thank you for registering. You will receive a confirmation email shortly.</p>
+  <p>Event details and your registration ID have been sent to your email (demo).</p>
+</div>
+
+
+    <script src="reg.js"></script>
+</body>
+</html>
